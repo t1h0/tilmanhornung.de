@@ -1,0 +1,36 @@
+@import './base.css';
+
+#app {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  padding: var(--app-padding);
+  font-weight: normal;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-text);
+  transition: 0.4s;
+}
+
+a:visited {
+  color: var(--color-text);
+}
+
+a:active,
+a:hover,
+.router-link-active,
+.router-link-hover {
+  color: var(--color-main) !important;
+}
+
+body {
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  #app {
+    padding: var(--app-padding);
+  }
+}

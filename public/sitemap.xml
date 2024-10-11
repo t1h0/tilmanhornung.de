@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>http://www.tilmanhornung.de/</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>http://www.tilmanhornung.de/code</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>http://www.tilmanhornung.de/music</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>http://www.tilmanhornung.de/graphics</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>http://www.tilmanhornung.de/web</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>http://www.tilmanhornung.de/film-video</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+</urlset>
