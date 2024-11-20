@@ -8,8 +8,7 @@ defineProps<{
 
 <template>
     <h1 id="title">{{ title }}.</h1>
-    <CVEntry v-for="entry in $props.entries" :key="entry.title" class="cventry" :title="entry.title"
-        :subtitle="entry.subtitle" :place="entry.place" :start="entry.start" :end="entry.end" />
+    <CVEntry v-for="entry in $props.entries" :key="entry.title" class="cventry" :="entry" />
 </template>
 
 <style>

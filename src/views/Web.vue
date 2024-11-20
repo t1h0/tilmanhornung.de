@@ -9,7 +9,7 @@ const webrefs = [
 
 <template>
   <main>
-    <WebRef class="webref" v-for="webref in webrefs" :key="webref.url" :url="webref.url" :title="webref.title" />
+    <WebRef class="webref" v-for="webref in webrefs" :key="webref.url" :="webref" />
   </main>
 </template>
 

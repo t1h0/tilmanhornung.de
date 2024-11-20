@@ -18,8 +18,7 @@ const graphics = [
 
 <template>
   <main>
-    <Graphic class="img" v-for="graphic in graphics" :key="graphic.original" :original="graphic.original"
-      :preview="graphic.preview" :title="graphic.title" :alt="graphic.alt" />
+    <Graphic class="img" v-for="graphic in graphics" :key="graphic.original" :="graphic" />
   </main>
 </template>
 

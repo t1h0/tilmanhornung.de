@@ -67,8 +67,7 @@ const CVGroups = [
     <div id="left" class="column">
       <h1 id="slogan">creativity in<br />art and numbers.</h1>
       <div id="cv">
-        <CVGroup v-for="group in CVGroups" :key="group.title" class="cvgroup" :title="group.title"
-          :entries="group.entries" />
+        <CVGroup v-for="group in CVGroups" :key="group.title" :="group" />
       </div>
       <h1 id="linkedin">
         <a href="https://linkedin.com/in/tilmanhornung" target="_blank">> LinkedIn</a>

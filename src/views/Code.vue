@@ -32,8 +32,7 @@ const entries = [
 
 <template>
   <main>
-    <ProjectEntry class="ProjectEntry" v-for="entry in entries" :key="entry.title" :title="entry.title"
-      :links="entry.links"></ProjectEntry>
+    <ProjectEntry class="ProjectEntry" v-for="entry in entries" :key="entry.title" :="entry" />
     <div id="github">
       <a href="https://github.com/t1h0" target="_blank">
         <h1>Github</h1>

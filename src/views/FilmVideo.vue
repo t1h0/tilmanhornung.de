@@ -27,8 +27,7 @@ const videos = [
 
 <template>
   <main>
-    <Video class="vid" v-for="video in videos" :key="video.yt_id" :yt_id="video.yt_id" :title="video.title"
-      :alt="video.alt" />
+    <Video class="vid" v-for="video in videos" :key="video.yt_id" :="video" />
   </main>
 </template>
 
