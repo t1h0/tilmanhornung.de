@@ -32,7 +32,7 @@ main {
 .img {
   flex: calc(50% - 1rem);
   height: 100vh;
-  max-height: calc(100vh - 2 * var(--app-padding));
+  max-height: calc(100vh - 2.5 * var(--app-padding));
 }
 
 .img:hover {

@@ -32,33 +32,22 @@ const entries = [
 
 <template>
   <main>
-    <ProjectEntry class="ProjectEntry" v-for="entry in entries" :key="entry.title" :="entry" />
     <div id="github">
       <a href="https://github.com/t1h0" target="_blank">
         <h1 class="arrowLink">Github</h1>
       </a>
     </div>
+    <ProjectEntry class="ProjectEntry" v-for="entry in entries" :key="entry.title" :="entry" />
   </main>
 </template>
 
-<style>
-#github {
-  margin-top: 1rem;
-}
-
+<style scoped>
+#github,
 .ProjectEntry:not(:last-child) {
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
-h1 {
-  font-size: var(--h2);
-}
-
-.ProjectEntry h2 {
-  font-size: var(--h3);
-}
-
-.ProjectEntry #links {
+.ProjectEntry:deep(#links) {
   line-height: 1;
 }
 </style>

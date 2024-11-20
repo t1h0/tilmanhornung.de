@@ -8,24 +8,18 @@ defineProps<{
 </script>
 
 <template>
-    <h1 id="title">{{ title }}.</h1>
-    <CVEntry v-for="entry in $props.entries" :key="entry.title" class="cventry" :="entry" />
+    <div>
+        <h1>{{ title }}.</h1>
+        <CVEntry v-for="entry in $props.entries" :key="entry.title" class="cventry" :="entry" />
+    </div>
 </template>
 
-<style>
-#title {
-    font-size: var(--h2);
+<style scoped>
+h1 {
+    margin-bottom: .5rem;
 }
 
 .cventry:not(:last-child) {
     margin-bottom: 1rem;
-}
-
-.cventry h1 {
-    font-size: var(--h3);
-}
-
-.cventry h2 {
-    font-size: var(--h4);
 }
 </style>

@@ -75,11 +75,11 @@ const CVGroups = [
   <main>
     <div id="left" class="column">
       <h1 id="slogan">creativity in<br />art and numbers.</h1>
-      <h1 id="linkedin" class="arrowLink">
+      <h2 id="linkedin" class="arrowLink">
         <a href="https://linkedin.com/in/tilmanhornung" target="_blank">LinkedIn</a>
-      </h1>
+      </h2>
       <div id="cv">
-        <CVGroup v-for="group in CVGroups" :key="group.title" :="group" />
+        <CVGroup v-for="group in CVGroups" :key="group.title" :="group" class="cvgroup" />
       </div>
     </div>
     <div id="right" class="column">
@@ -122,7 +122,7 @@ main {
 }
 
 #linkedin {
-  font-size: var(--h2);
+  display: none;
   margin: 1rem 0;
 }
 
@@ -130,9 +130,27 @@ main {
   margin: 1rem 0;
 }
 
-h1 {
-  font-size: var(--h2);
-  line-height: 2rem;
+#slogan {
+  border-left: medium solid #929292;
+  --small-line-height: calc(var(--h1-line-height) - 0.5rem);
+  line-height: var(--small-line-height);
+  /* Adjusts for smaller line-height */
+  margin: 0 0 calc(var(--h1-line-height) - var(--small-line-height));
+  padding-left: 1rem;
+}
+
+.cvgroup:not(:first-child) {
+  margin-top: 1rem;
+}
+
+.cvgroup:deep(.cventry h1) {
+  font-size: var(--h3);
+  line-height: var(--h3-line-height);
+}
+
+.cvgroup:deep(.cventry h2) {
+  font-size: var(--h4);
+  line-height: var(--h4-line-height);
 }
 
 @media (min-width: 1024px) {

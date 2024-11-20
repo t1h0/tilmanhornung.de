@@ -38,7 +38,7 @@ const props = defineProps<CVEntryProps>()
     </div>
 </template>
 
-<style scoped>
+<style>
 #wrapper {
     display: flex;
     flex-direction: column;

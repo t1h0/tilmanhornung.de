@@ -3,7 +3,7 @@ import WebRef from '../components/WebRef.vue'
 const webrefs = [
   { url: 'https://www.tilmanhornung.de', title: 'TILMANHORNUNG' },
   { url: 'https://www.hornung-bonn.de', title: 'PRAXISFÜRPSYCHOTHERAPIEANGELIKAHORNUNG' },
-  { url: 'https://www.wphornung.de', title: 'PRAXISPROF.DR.MED.WILHELMPETERHORNUNG' }
+  { url: 'https://www.wphornung.de', title: 'PRAXISPROFDRMEDWILHELMPETERHORNUNG' }
 ]
 </script>
 
@@ -19,13 +19,13 @@ main {
   font-size: 48pt;
 }
 
-.webref {
+/* .webref {
   margin-bottom: 3rem;
-}
+} */
 
 @media (min-width: 1024px) {
   main {
-    font-size: 72pt;
+    font-size: 56pt;
   }
 }
 </style>
