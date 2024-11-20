@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import { inject } from 'vue'
+const firstName = inject('firstName') as string
+const firstNameOfficial = inject('firstNameOfficial') as string
 </script>
 
 <template>
   <div id="wrapper">
     <header>
       <div id="name">
-        <RouterLink to="/">tilman hornung</RouterLink>
+        <RouterLink to="/">{{ firstName }} hornung</RouterLink>
       </div>
 
       <nav>
@@ -24,7 +27,7 @@ import { RouterLink, RouterView } from 'vue-router'
       </Transition>
     </RouterView>
   </div>
-  <footer>&#169; Tilman Hornung | <RouterLink to="/privacy">privacy policy</RouterLink>
+  <footer>&#169; {{ firstNameOfficial }} Hornung | <RouterLink to="/privacy">privacy policy</RouterLink>
   </footer>
 </template>
 

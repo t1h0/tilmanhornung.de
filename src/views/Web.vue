@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import WebRef from '../components/WebRef.vue'
+import { inject } from 'vue'
+const firstName = inject('firstName') as string
 const webrefs = [
-  { url: 'https://www.tilmanhornung.de', title: 'TILMANHORNUNG' },
+  { url: `https://www.${firstName}hornung.de`, title: `${firstName.toUpperCase()}HORNUNG` },
   { url: 'https://www.hornung-bonn.de', title: 'PRAXISFÜRPSYCHOTHERAPIEANGELIKAHORNUNG' },
   { url: 'https://www.wphornung.de', title: 'PRAXISPROFDRMEDWILHELMPETERHORNUNG' }
 ]
