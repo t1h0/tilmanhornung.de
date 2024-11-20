@@ -5,8 +5,17 @@ const CVGroups = [
     title: 'work',
     entries: [
       {
+        title: 'full stack & machine learning engineer',
+        subtitle: 'textada',
+        subtitleUrl: 'https://textada.com',
+        place: 'berlin',
+        start: '10/2022',
+        end: '12/2023'
+      },
+      {
         title: 'researcher',
         subtitle: 'heidelberg academy of sciences and humanities',
+        subtitleUrl: 'https://www.hadw-bw.de/',
         place: 'konstanz',
         start: '10/2022',
         end: '12/2023'

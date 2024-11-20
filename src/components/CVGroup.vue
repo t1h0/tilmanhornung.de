@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import CVEntry from './CVEntry.vue'
+import type { CVEntryProps } from '../ts/types'
 defineProps<{
     title: string
-    entries: Array<{ title: string; subtitle: string; start: string; end?: string; place: string }>
+    entries: CVEntryProps[]
 }>()
 </script>
 

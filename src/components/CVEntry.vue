@@ -1,5 +1,6 @@
 <script setup lang="ts">
-defineProps({ title: String, subtitle: String, start: String, end: String, place: String })
+import type { CVEntryProps } from '../ts/types'
+const props = defineProps<CVEntryProps>()
 </script>
 
 <template>
