@@ -45,6 +45,7 @@ import { RouterLink, RouterView } from 'vue-router'
   align-items: flex-start;
   flex-direction: column;
   min-height: calc(100vh - 2 * var(--app-padding) - 1.5rem);
+  margin: 0 0 1rem;
 }
 
 header {
