@@ -6,7 +6,14 @@ defineProps({ title: String, subtitle: String, start: String, end: String, place
     <div id="wrapper">
         <div class="row">
             <div id="title">
-                <h1>{{ title }}</h1>
+                <h1>
+                    <a class="arrowLink" target="_blank" v-if="titleUrl" :href="props.titleUrl">
+                        {{ title }}
+                    </a>
+                    <span v-else>
+                        {{ title }}
+                    </span>
+                </h1>
             </div>
             <div id="date">
                 {{ start }}<span v-if="end">&nbsp;-&nbsp;{{ end }}</span>
@@ -14,7 +21,14 @@ defineProps({ title: String, subtitle: String, start: String, end: String, place
         </div>
         <div class="row">
             <div id="subtitle">
-                <h2>{{ subtitle }}</h2>
+                <h2>
+                    <a class="arrowLink" target="_blank" v-if="subtitleUrl" :href="subtitleUrl">
+                        {{ subtitle }}
+                    </a>
+                    <span v-else>
+                        {{ subtitle }}
+                    </span>
+                </h2>
             </div>
             <div id="place" v-if="place">
                 {{ place }}

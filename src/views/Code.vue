@@ -35,7 +35,7 @@ const entries = [
     <ProjectEntry class="ProjectEntry" v-for="entry in entries" :key="entry.title" :="entry" />
     <div id="github">
       <a href="https://github.com/t1h0" target="_blank">
-        <h1>Github</h1>
+        <h1 class="arrowLink">Github</h1>
       </a>
     </div>
   </main>
@@ -44,10 +44,6 @@ const entries = [
 <style>
 #github {
   margin-top: 1rem;
-}
-
-#github h1::before {
-  content: '> ';
 }
 
 .ProjectEntry:not(:last-child) {

@@ -12,7 +12,7 @@ defineProps<{
         </div>
         <div id="links">
             <div class="link" v-for="link in links" :key="link.url">
-                <h2>
+                <h2 class="arrowLink">
                     <a :href="link.url" target="_blank">
                         {{ link.title }}
                     </a>
@@ -28,8 +28,9 @@ defineProps<{
         gap: 0.5rem;
     }
 
-    .link:not(:last-child) h2::after {
-        content: ',';
+
+    .link:not(:last-child) {
+        margin-right: 1em;
     }
 }
 

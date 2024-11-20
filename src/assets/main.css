@@ -34,3 +34,9 @@ body {
     padding: var(--app-padding);
   }
 }
+
+.arrowLink::before {
+  content: '\276F';
+  color: var(--color-main);
+  margin-right: 0.1em;
+}

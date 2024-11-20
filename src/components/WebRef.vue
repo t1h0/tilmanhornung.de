@@ -3,7 +3,7 @@ defineProps<{ url: string; title: string }>()
 </script>
 
 <template>
-    <a id="container" :href="url" target="_blank"><span class="arrow">&#x276F;</span>
+    <a id="container" class="arrowLink" :href="url" target="_blank">
         <span class="char" v-for="char in title" :key="char">{{ char }}</span></a>
 </template>
 
@@ -17,9 +17,5 @@ defineProps<{ url: string; title: string }>()
 
 .char {
     flex-basis: 9vw;
-}
-
-.arrow {
-    color: var(--color-main);
 }
 </style>
