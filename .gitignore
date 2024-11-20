@@ -1,10 +1,7 @@
 # Ignored for source publication
 src/assets/*.ttf
 src/assets/img
-public/pdf
-public/img
-public/.htaccess
-public/robots.txt
+public/
 
 # Logs
 logs
