@@ -168,6 +168,8 @@ main {
   flex: 1 0 25%;
   align-items: flex-end;
   justify-content: center;
+  position: sticky;
+  top: 0;
   background-image: url('/src/assets/img/portrait.jpg');
   background-size: cover;
   background-position-x: 45%;
@@ -215,6 +217,10 @@ main {
 @media (min-width: 1024px) {
   #portrait {
     display: None;
+  }
+
+  #right {
+    height: 100vh;
   }
 }
 </style>
