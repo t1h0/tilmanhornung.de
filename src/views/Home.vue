@@ -5,6 +5,13 @@ const CVGroups = [
     title: 'work',
     entries: [
       {
+        title: 'software developer',
+        subtitle: 'self-employed',
+        place: 'berlin',
+        start: '01/2024',
+        end: '10/2024'
+      },
+      {
         title: 'full stack & machine learning engineer',
         subtitle: 'textada',
         subtitleUrl: 'https://textada.com',
@@ -15,7 +22,7 @@ const CVGroups = [
       {
         title: 'researcher',
         subtitle: 'heidelberg academy of sciences and humanities',
-        subtitleUrl: 'https://www.hadw-bw.de/',
+        subtitleUrl: 'https://www.hadw-bw.de',
         place: 'konstanz',
         start: '10/2022',
         end: '12/2023'
@@ -37,9 +44,49 @@ const CVGroups = [
         title: 'production and artistic director',
         place: 'trier',
         subtitle: 'mobile spielaktion e.V. Trier',
+        subtitleUrl: 'https://spielaktion.de',
         start: '11/2015',
         end: '12/2016'
-      }
+      },
+      {
+        title: 'photographer',
+        subtitle: 'vogelfrei',
+        subtitleUrl: 'https://www.facebook.com/Vogelfreitrier',
+        place: 'trier',
+        start: '2015',
+        end: '2018'
+      },
+      {
+        title: 'web designer',
+        subtitle: 'freelancer',
+        start: 'since 2011',
+      },
+    ]
+  },
+  {
+    title: 'art',
+    entries: [
+      {
+        title: 'graphic designer',
+        subtitle: 'cover and album art',
+        start: 'since 2013'
+      },
+      {
+        title: 'filmmaker',
+        subtitle: 'director | cinematographer | cutter | screenwriter',
+        start: 'since 2011'
+      },
+      {
+        title: 'bass player & singer',
+        subtitle: 'gentree',
+        subtitleUrl: 'https://open.spotify.com/artist/0JgFhRX2Rccdyf5gePLNHO',
+        start: 'since 2011',
+      },
+      {
+        title: 'solo artist',
+        subtitle: 'singer | pianist | guitarist',
+        start: 'since 2007',
+      },
     ]
   },
   {
@@ -49,15 +96,15 @@ const CVGroups = [
         title: 'M.Sc. social and economic data science',
         place: 'konstanz',
         subtitle: 'university of konstanz',
-        start: '10/2018',
-        end: '09/2019'
+        start: '10/2020',
+        end: '03/2022'
       },
       {
         title: 'human factors',
-        place: 'konstanz',
+        place: 'berlin',
         subtitle: 'tu berlin',
-        start: '10/2020',
-        end: '03/2022'
+        start: '10/2018',
+        end: '09/2019'
       },
       {
         title: 'B.Sc. psychology',
@@ -66,6 +113,18 @@ const CVGroups = [
         start: '10/2014',
         end: '09/2018'
       }
+    ]
+  },
+  {
+    title: 'volunteering',
+    entries: [
+      {
+        title: 'youth worker | head of community',
+        place: 'bonn',
+        subtitle: 'katholische junge gemeinde',
+        start: '2010',
+        end: '2014 & 2018'
+      },
     ]
   }
 ]
