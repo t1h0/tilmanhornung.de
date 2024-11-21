@@ -6,7 +6,7 @@ const firstNameOfficial = inject('firstNameOfficial') as string
 </script>
 
 <template>
-  <div id="wrapper">
+  <div id="pageWrapper">
     <header>
       <div id="name">
         <RouterLink to="/">{{ firstName }} hornung</RouterLink>
@@ -20,15 +20,16 @@ const firstNameOfficial = inject('firstNameOfficial') as string
         <RouterLink to="/film-video">film+video</RouterLink>
       </nav>
     </header>
-
-    <RouterView id="content" v-slot="{ Component }">
-      <Transition name="fade" mode="out-in">
-        <component :is="Component" />
-      </Transition>
-    </RouterView>
+    <div id="contentWrapper">
+      <RouterView id="content" v-slot="{ Component }">
+        <Transition name="fade" mode="out-in">
+          <component :is="Component" />
+        </Transition>
+      </RouterView>
+      <footer>&#169; {{ firstNameOfficial }} Hornung | <RouterLink to="/privacy">privacy policy</RouterLink>
+      </footer>
+    </div>
   </div>
-  <footer>&#169; {{ firstNameOfficial }} Hornung | <RouterLink to="/privacy">privacy policy</RouterLink>
-  </footer>
 </template>
 
 <style scoped>
@@ -43,12 +44,15 @@ const firstNameOfficial = inject('firstNameOfficial') as string
   }
 }
 
-#wrapper {
+#pageWrapper {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   min-height: calc(100vh - 2 * var(--app-padding) - 1.5rem);
-  margin: 0 0 1rem;
+}
+
+#contentWrapper {
+  width: 100%;
 }
 
 header {
@@ -97,6 +101,8 @@ nav a:first-of-type {
 
 #content {
   width: 100%;
+  margin: 0 0 1rem;
+  min-height: 88vh;
 }
 
 .fade-enter-active,
@@ -116,7 +122,7 @@ nav a:first-of-type {
     top: var(--app-padding);
   }
 
-  #wrapper {
+  #pageWrapper {
     flex-direction: row;
   }
 
