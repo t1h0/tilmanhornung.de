@@ -32,15 +32,15 @@ const firstNameOfficial = inject('firstNameOfficial') as string
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 @media (max-width: 767px) {
   nav {
     flex-wrap: wrap;
-  }
 
-  nav a:not(:last-child)::after {
-    content: ',';
-    color: var(--color-text);
+    a:not(:last-child)::after {
+      content: ',';
+      color: var(--color-text);
+    }
   }
 }
 
@@ -73,11 +73,12 @@ footer {
   margin: 0;
   text-align: left;
   line-height: 0.75;
-}
 
-#name::after {
-  content: '.';
-  color: var(--color-main);
+
+  &::after {
+    content: '.';
+    color: var(--color-main);
+  }
 }
 
 nav {
@@ -85,18 +86,19 @@ nav {
   flex-direction: row;
   text-align: left;
   margin-top: 1rem;
-}
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
+  a {
+    padding: 0 0 0;
 
-nav a {
-  padding: 0 0 0;
-}
+    &.router-link-exact-active:hover {
+      background-color: transparent;
+    }
 
-nav a:first-of-type {
-  border: 0;
+
+    &:first-of-type {
+      border: 0;
+    }
+  }
 }
 
 #content {

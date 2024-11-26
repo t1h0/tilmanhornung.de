@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import CVGroup from '../components/CVGroup.vue'
+import { inject } from 'vue'
+const noPic = inject('noPic') as boolean
 const CVGroups = [
   {
     title: 'work',
@@ -133,7 +135,7 @@ const CVGroups = [
 <template>
   <main>
     <div id="left" class="column">
-      <h1 id="slogan">creativity in<br />art and numbers.</h1>
+      <div id="slogan">creativity in<br />art and numbers.</div>
       <h2 id="linkedin" class="arrowLink">
         <a href="https://linkedin.com/in/tilmanhornung" target="_blank">LinkedIn</a>
       </h2>
@@ -141,13 +143,15 @@ const CVGroups = [
         <CVGroup v-for="group in CVGroups" :key="group.title" :="group" class="cvgroup" />
       </div>
     </div>
-    <div id="right" class="column">
+    <div id="right" v-if="!noPic" class="column">
       <img id="portrait" src="/src/assets/img/portrait.jpg" />
     </div>
   </main>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@import '../assets/css/headings.scss';
+
 @media (max-width: 1023px) {
   main {
     flex-direction: column;
@@ -172,7 +176,7 @@ main {
   top: 0;
   background-image: url('/src/assets/img/portrait.jpg');
   background-size: cover;
-  background-position-x: 45%;
+  background-position-x: 46%;
 }
 
 #portrait {
@@ -192,26 +196,27 @@ main {
 }
 
 #slogan {
+  @extend h1;
   border-left: medium solid #929292;
-  --small-line-height: calc(var(--h1-line-height) - 0.5rem);
+  --small-line-height: var(--h1);
   line-height: var(--small-line-height);
   /* Adjusts for smaller line-height */
   margin: 0 0 calc(var(--h1-line-height) - var(--small-line-height));
   padding-left: 1rem;
 }
 
-.cvgroup:not(:first-child) {
-  margin-top: 1rem;
-}
+.cvgroup {
+  &:not(:first-child) {
+    margin-top: 1rem;
+  }
 
-.cvgroup:deep(.cventry h1) {
-  font-size: var(--h3);
-  line-height: var(--h3-line-height);
-}
+  &:deep(.cventry h1) {
+    @extend h3;
+  }
 
-.cvgroup:deep(.cventry h2) {
-  font-size: var(--h4);
-  line-height: var(--h4-line-height);
+  &:deep(.cventry h2) {
+    @extend h4;
+  }
 }
 
 @media (min-width: 1024px) {

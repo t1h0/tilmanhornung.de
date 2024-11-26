@@ -1,0 +1,14 @@
+@use 'sass:meta';
+@use 'sass:string';
+@import './functions.scss';
+
+// Mixins
+
+@mixin heading($head: h1) {
+  #{$head} {
+    font-size: var(--#{$head});
+    line-height: calc(var(--#{$head}) + 0.5rem);
+  }
+}
+
+@include apply-to-all(meta.get-mixin('heading'), [ h1 h2 h3 h4]);
