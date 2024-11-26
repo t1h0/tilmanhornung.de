@@ -141,7 +141,7 @@ const CVGroups = [
         <a href="https://linkedin.com/in/tilmanhornung" target="_blank">LinkedIn</a>
       </h2>
       <div id="cv">
-        <scroll-animation v-for="group in CVGroups" :key="group.title">
+        <scroll-animation v-for="group in CVGroups" :key="group.title" class="cvgroup-container">
           <CVGroup :="group" class="cvgroup" />
         </scroll-animation>
       </div>
@@ -207,10 +207,11 @@ main {
   padding-left: 1rem;
 }
 
+.cvgroup-container:not(:first-child) {
+  margin-top: 1rem;
+}
+
 .cvgroup {
-  &:not(:first-child) {
-    margin-top: 1rem;
-  }
 
   &:deep(.cventry h1) {
     @extend h3;
