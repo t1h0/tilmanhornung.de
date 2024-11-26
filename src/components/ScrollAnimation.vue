@@ -10,7 +10,7 @@ const animate = ref<boolean>(false);
 
 const observer = new IntersectionObserver(
     ([entry]) => {
-        animate.value = entry.isIntersecting;
+        animate.value = animate.value || entry.isIntersecting;
     },
     {
         threshold: 0.5
