@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '@/views/Home.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,32 +12,32 @@ const router = createRouter({
     {
       path: '/code',
       name: 'code',
-      component: () => import('../views/Code.vue')
+      component: () => import('@/views/Code.vue')
     },
     {
       path: '/music',
       name: 'music',
-      component: () => import('../views/Music.vue')
+      component: () => import('@/views/Music.vue')
     },
     {
       path: '/graphics',
       name: 'graphics',
-      component: () => import('../views/Graphics.vue')
+      component: () => import('@/views/Graphics.vue')
     },
     {
       path: '/web',
       name: 'web',
-      component: () => import('../views/Web.vue')
+      component: () => import('@/views/Web.vue')
     },
     {
       path: '/film-video',
       name: 'film-video',
-      component: () => import('../views/FilmVideo.vue')
+      component: () => import('@/views/FilmVideo.vue')
     },
     {
       path: '/privacy',
       name: 'privacy',
-      component: () => import('../views/Privacy.vue')
+      component: () => import('@/views/Privacy.vue')
     }
   ]
 })

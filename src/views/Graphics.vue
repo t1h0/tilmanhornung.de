@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Graphic from '../components/Graphic.vue'
+import Graphic from '@/components/Graphic.vue'
 const graphics = [
   {
     title: 'Jazz Baby EP Cover',

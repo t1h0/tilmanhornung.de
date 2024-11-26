@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CVGroup from '../components/CVGroup.vue'
+import CVGroup from '@/components/CVGroup.vue'
 import { inject } from 'vue'
 const noPic = inject('noPic') as boolean
 const CVGroups = [
@@ -150,7 +150,7 @@ const CVGroups = [
 </template>
 
 <style scoped lang="scss">
-@import '../assets/css/headings.scss';
+@import '@/assets/css/headings.scss';
 
 @media (max-width: 1023px) {
   main {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Video from '../components/Video.vue'
+import Video from '@/components/Video.vue'
 const videos = [
   { title: 'Weit Weg', alt: "Movie for my bachelor's thesis.", yt_id: 'Xd77R7J77IE' },
   {

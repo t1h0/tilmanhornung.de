@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { CVEntryProps } from '../ts/types'
+import type { CVEntryProps } from '@/ts/types'
 const props = defineProps<CVEntryProps>()
 </script>
 

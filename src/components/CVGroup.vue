@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import CVEntry from './CVEntry.vue'
-import type { CVEntryProps } from '../ts/types'
+import type { CVEntryProps } from '@/ts/types'
 defineProps<{
     title: string
     entries: CVEntryProps[]

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import WebRef from '../components/WebRef.vue'
+import WebRef from '@/components/WebRef.vue'
 import { inject } from 'vue'
 const firstName = inject('firstName') == 'tilman' ? 'nomo' : 'tilman'
 const webrefs = [

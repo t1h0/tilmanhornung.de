@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ProjectEntry from '../components/ProjectEntry.vue'
+import ProjectEntry from '@/components/ProjectEntry.vue'
 const entries = [
   {
     title: 'ideologywatch',
