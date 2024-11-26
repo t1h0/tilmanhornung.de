@@ -63,28 +63,30 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
+@use '@/assets/css/main.scss';
+
 @media (max-width: 767px) {
   nav {
     flex-wrap: wrap;
 
     a:not(:last-child)::after {
       content: ',';
-      color: var(--color-text);
+      color: main.$color-text;
     }
   }
 
   header {
-    padding: var(--app-padding);
+    padding: main.$app-padding;
   }
 
   .shrink {
     font-size: 2rem !important;
     line-height: 1 !important;
     gap: 0 !important;
-    --small-padding: calc(var(--app-padding) / 2);
-    padding: var(--small-padding) var(--app-padding) var(--small-padding) var(--app-padding);
+    $small-padding: calc(main.$app-padding / 2);
+    padding: $small-padding main.$app-padding $small-padding main.$app-padding;
     width: 100%;
-    box-shadow: 0 2.5px 0px var(--c-main);
+    box-shadow: 0 2.5px 0px main.$c-main;
   }
 }
 
@@ -92,12 +94,12 @@ onMounted(() => {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  min-height: calc(100vh - 2 * var(--app-padding) - 1.5rem);
+  min-height: calc(100vh - 2 * main.$app-padding - 1.5rem);
 }
 
 #contentWrapper {
   width: 100%;
-  padding: 0 var(--app-padding) 0 var(--app-padding);
+  padding: 0 main.$app-padding 0 main.$app-padding;
 }
 
 header {
@@ -110,7 +112,7 @@ header {
   line-height: 1.5;
   font-size: 2.25rem;
   font-family: 'Arial Black' !important;
-  background-color: var(--color-background);
+  background-color: main.$color-background;
   // transitions
   transition: font-size 1s, gap 1s, padding 1s, box-shadow 1s;
 }
@@ -127,7 +129,7 @@ footer {
 
   &::after {
     content: '.';
-    color: var(--color-main);
+    color: main.$color-main;
   }
 }
 
@@ -170,7 +172,7 @@ nav {
   header {
     position: sticky;
     padding-top: 0;
-    top: var(--app-padding);
+    top: main.$app-padding;
   }
 
   #pageWrapper {

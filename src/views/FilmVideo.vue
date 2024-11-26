@@ -31,7 +31,9 @@ const videos = [
   </main>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use '@/assets/css/main.scss';
+
 main {
   display: flex;
   flex-flow: row wrap;
@@ -41,7 +43,7 @@ main {
 .vid {
   width: 100%;
   height: 250px;
-  max-height: calc(100vh - 2 * var(--app-padding));
+  max-height: calc(100vh - 2 * main.$app-padding);
 }
 
 @media (min-width: 1024px) {

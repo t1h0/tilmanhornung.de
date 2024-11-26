@@ -155,7 +155,8 @@ const CVGroups = [
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/css/headings.scss';
+@use '@/assets/css/main.scss';
+@use "sass:map";
 
 @media (max-width: 1023px) {
   main {
@@ -185,7 +186,7 @@ main {
   width: 100%;
   object-fit: cover;
   position: sticky;
-  top: var(--app-padding);
+  top: main.$app-padding;
 }
 
 #linkedin {
@@ -200,10 +201,10 @@ main {
 #slogan {
   @extend h1;
   border-left: medium solid #929292;
-  --small-line-height: var(--h1);
-  line-height: var(--small-line-height);
+  $small-line-height: map.get(main.$headings, h1);
+  line-height: small-line-height;
   /* Adjusts for smaller line-height */
-  margin: 0 0 calc(var(--h1-line-height) - var(--small-line-height));
+  margin: 0 0 .5rem;
   padding-left: 1rem;
 }
 

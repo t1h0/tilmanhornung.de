@@ -1,33 +1,97 @@
-@import './base.scss';
-@import './headings.scss';
+@use 'sass:meta';
+@use 'sass:string';
+@use './functions.scss';
+@use 'sass:map';
+
+// =============== BASE ===============
+
+/* color palette from <https://github.com/vuejs/theme> */
+$c-main: #0040ff;
+$c-beige: #e3e3e3;
+$c-gray: #262626;
+$c-lightgray: #686868;
+
+/* semantic color variables for this project */
+$color-main: $c-main;
+$color-background: $c-beige;
+$color-text: $c-gray;
+$color-lighttext: $c-lightgray;
+$section-gap: 160px;
+$font-size: 15px;
+$headings: (
+  h1: 2.5rem,
+  h2: 2rem,
+  h3: 1.5rem,
+  h4: 1rem
+);
+$app-padding: 2rem;
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+
+  }
+} */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  /* font-weight: normal; */
+}
+
+body {
+  min-height: 100vh;
+  color: $color-text;
+  background: $color-background;
+  transition: color 0.5s;
+  line-height: 1.6;
+  font-family: 'Helvetica Bold' !important;
+  font-size: $font-size;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: 'Helvetica Bold';
+  src: url('/src/assets/Helvetica-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Arial Black';
+  src: url('/src/assets/Arial-Black.ttf') format('truetype');
+}
+
+// ==============================
 
 #app {
   /* max-width: 1280px; */
   margin: 0 auto;
-  padding: 0 0 var(--app-padding);
+  padding: 0 0 $app-padding;
   font-weight: normal;
   width: 100%;
 }
 
 a {
   text-decoration: none;
-  color: var(--color-text);
+  color: $color-text;
   transition: color 0.4s;
 }
 
 a:visited {
-  color: var(--color-text);
+  color: $color-text;
 }
 
 a:active,
 a:hover,
 .router-link-active,
 .router-link-hover {
-  color: var(--color-main) !important;
+  color: $color-main !important;
 }
 
 html {
-  font-size: var(--font-size);
+  font-size: $font-size;
 }
 
 body {
@@ -36,12 +100,25 @@ body {
 
 @media (min-width: 768px) {
   #app {
-    padding: var(--app-padding);
+    padding: $app-padding;
   }
 }
 
 .arrowLink::before {
   content: '\276F';
-  color: var(--color-main);
+  color: $color-main;
   margin-right: 0.1em;
 }
+
+// Headings
+
+// Mixins
+
+@mixin heading($head: h1) {
+  #{$head} {
+    font-size: map.get($headings, $head);
+    line-height: calc(map.get($headings, $head) + 0.5rem);
+  }
+}
+
+@include functions.apply-to-all(meta.get-mixin('heading'), [ h1 h2 h3 h4]);
