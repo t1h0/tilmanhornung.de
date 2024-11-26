@@ -1,7 +1,7 @@
 import '@/assets/css/reset.css'
 import '@/assets/css/main.scss'
 
-import { createApp } from 'vue'
+import { createApp, type Directive, type DirectiveBinding, type VNode } from 'vue'
 
 import App from '@/App.vue'
 import router from '@/router'
@@ -42,6 +42,32 @@ switch (mainUrl) {
   }
 }
 
+// Appear directive
+// Author: Michael Verschoof
+// https://github.com/michaelverschoof/medium-examples/tree/animated-component-when-scrolling-into-view
+const appear: Directive = {
+  beforeMount(element: HTMLElement) {
+    element.style.visibility = 'hidden'
+  },
+  updated(element: HTMLElement, binding: DirectiveBinding<boolean>, node: VNode) {
+    if (!binding.value === !binding.oldValue || null === node.transition) {
+      return
+    }
+
+    if (!binding.value) {
+      node.transition.leave(element, () => {
+        element.style.visibility = 'hidden'
+      })
+      return
+    }
+
+    node.transition.beforeEnter(element)
+    element.style.visibility = ''
+    node.transition.enter(element)
+  }
+}
+
 app.use(router)
+app.directive('appear', appear)
 
 app.mount('#app')

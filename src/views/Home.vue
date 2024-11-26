@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ScrollAnimation from '@/components/ScrollAnimation.vue';
 import CVGroup from '@/components/CVGroup.vue'
 import { inject } from 'vue'
 const noPic = inject('noPic') as boolean
@@ -140,11 +141,15 @@ const CVGroups = [
         <a href="https://linkedin.com/in/tilmanhornung" target="_blank">LinkedIn</a>
       </h2>
       <div id="cv">
-        <CVGroup v-for="group in CVGroups" :key="group.title" :="group" class="cvgroup" />
+        <scroll-animation v-for="group in CVGroups" :key="group.title">
+          <CVGroup :="group" class="cvgroup" />
+        </scroll-animation>
       </div>
     </div>
     <div id="right" v-if="!noPic" class="column">
-      <img id="portrait" src="/src/assets/img/portrait.jpg" />
+      <scroll-animation>
+        <img id="portrait" src="/src/assets/img/portrait.jpg" />
+      </scroll-animation>
     </div>
   </main>
 </template>
@@ -174,9 +179,6 @@ main {
   justify-content: center;
   position: sticky;
   top: 0;
-  background-image: url('/src/assets/img/portrait.jpg');
-  background-size: cover;
-  background-position-x: 46%;
 }
 
 #portrait {
@@ -226,6 +228,9 @@ main {
 
   #right {
     height: 100vh;
+    background-image: url('/src/assets/img/portrait.jpg');
+    background-size: cover;
+    background-position-x: 46%;
   }
 }
 </style>
