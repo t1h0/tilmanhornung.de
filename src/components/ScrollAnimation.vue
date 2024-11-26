@@ -13,7 +13,7 @@ const observer = new IntersectionObserver(
         animate.value = animate.value || entry.isIntersecting;
     },
     {
-        threshold: 0.5
+        threshold: 0.25
     }
 );
 
