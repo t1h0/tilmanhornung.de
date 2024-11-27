@@ -1,33 +1,58 @@
 <script setup lang="ts">
 import Video from '@/components/Video.vue'
+import { onMounted, onUnmounted } from 'vue';
 const videos = [
-  { title: 'Weit Weg', alt: "Movie for my bachelor's thesis.", yt_id: 'Xd77R7J77IE' },
+  { title: 'weit weg', alt: "a movie I made for my bachelor's thesis, shedding light on the element of surprise. written, directed, filmed and cut by me.", yt_id: 'Xd77R7J77IE' },
   {
-    title: 'Shelter from the storm',
-    alt: "Music video of my band Gentree's song 'Shelter from the storm'",
+    title: 'shelter from the storm',
+    alt: "music video to my band's second single. directed, filmed and cut by me.",
     yt_id: '8dprNbvY20s'
   },
   {
-    title: 'We could have been great',
-    alt: "Music video of my band Gentree's song 'We could have been great'",
+    title: 'we could have been great',
+    alt: "music video to my band's second single. written, directed, filmed and cut by me.",
     yt_id: 'hTglRhdopFg'
   },
   {
-    title: 'TRIKI-Reporter: Die alten Römer ',
-    alt: 'Episode for the local TV from my time working in production and artistic direction.',
+    title: 'die alten römer',
+    alt: 'episode for the kid\'s show \'triki-reporter\'. produced and directed by me. written by the kids.',
     yt_id: 'fTIP-YIfN2I'
   },
   {
-    title: 'triki-reporter Magazin - Karneval',
-    alt: 'Episode for the local TV from my time working in production and artistic direction.',
+    title: 'karneval',
+    alt: 'episode for the kid\'s show \'triki-reporter\'. produced and directed by me. written by the kids.',
     yt_id: '07IFqY1P5lA'
   }
 ]
+
+const distances: number[] = [0, 50, 80, 75, 100];
+
+function dynamicStyle(index: number) {
+
+  interface Style {
+    marginTop?: string;
+  }
+  const style: Style = {};
+  style.marginTop = distances[index] + "px";
+  return style
+}
+
+function dynamicClasses(index: number) {
+
+  const classes: string[] = ["vid"];
+  if (index % 2 == 0) {
+    classes.push("left");
+  } else {
+    classes.push("right");
+  }
+  return classes
+}
 </script>
 
 <template>
   <main>
-    <Video class="vid" v-for="video in videos" :key="video.yt_id" :="video" />
+    <Video :class="dynamicClasses(index)" :style="dynamicStyle(index)" v-for="(video, index) in videos"
+      :key="video.yt_id" :="video" />
   </main>
 </template>
 
@@ -37,18 +62,52 @@ const videos = [
 main {
   display: flex;
   flex-flow: row wrap;
-  gap: 1rem;
+  max-width: 1024px;
+  // gap: 1rem;
+  // perspective: 1px;
+  // position: relative;
+  // display: block;
+  // height: 1000px;
 }
 
 .vid {
   width: 100%;
   height: 250px;
+  // position: relative;
   max-height: calc(100vh - 2 * main.$app-padding);
+
+  &.left {
+    align-self: flex-start;
+
+    &:deep(#video) {
+      order: 1;
+    }
+  }
+
+  &.right {
+    align-self: flex-end;
+
+    &:deep(#text) {
+      order: 1;
+    }
+  }
+
+  &:deep(h2) {
+    @extend h4;
+  }
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 1023px) {
   .vid {
-    flex: 0 0 calc(50% - 1rem);
+    &:deep(h1) {
+      font-size: 1.75rem !important;
+      line-height: 1;
+    }
+
+    &:deep(h2) {
+      font-size: .9rem !important;
+      line-height: 1;
+    }
   }
 }
 

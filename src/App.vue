@@ -4,14 +4,6 @@ import { inject, onMounted, onUnmounted } from 'vue'
 const firstName = inject('firstName') as string
 const firstNameOfficial = inject('firstNameOfficial') as string
 
-// function parallax() {
-//   var parralaxElements = document.getElementsByClassName("parallax");
-//   var scrollAmount = window.scrollY / 100;
-//   Array.from(parralaxElements).forEach((el) => {
-//     el.style.top = - scrollAmount + "%";
-//   });
-// }
-
 onMounted(() => {
   window.addEventListener("scroll", function () {
     const header = document.getElementsByTagName("header");
@@ -28,10 +20,6 @@ onMounted(() => {
     }
   })
 })
-
-// onUnmounted(() => {
-//   window.removeEventListener('scroll', parallax);
-// })
 
 </script>
 
@@ -77,6 +65,7 @@ onMounted(() => {
 
   header {
     padding: main.$app-padding;
+    z-index: 99;
   }
 
   .shrink {
@@ -95,11 +84,16 @@ onMounted(() => {
   align-items: flex-start;
   flex-direction: column;
   min-height: calc(100vh - 2 * main.$app-padding - 1.5rem);
+  // max-width: 1024px;
+  margin: auto;
 }
 
 #contentWrapper {
   width: 100%;
   padding: 0 main.$app-padding 0 main.$app-padding;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 header {

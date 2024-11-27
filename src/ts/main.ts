@@ -6,6 +6,8 @@ import { createApp, type Directive, type DirectiveBinding, type VNode } from 'vu
 import App from '@/App.vue'
 import router from '@/router'
 
+import { VuePrlxDirective } from 'vue3-prlx'
+
 const app = createApp(App)
 
 // Get URL and decide name
@@ -69,5 +71,6 @@ const appear: Directive = {
 
 app.use(router)
 app.directive('appear', appear)
+app.directive('prlx', VuePrlxDirective)
 
 app.mount('#app')
