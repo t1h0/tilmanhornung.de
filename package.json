@@ -13,6 +13,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0",
     "vue3-prlx": "github:hideki0403/vue3-prlx"
@@ -31,7 +32,6 @@
     "npm-run-all2": "^6.2.6",
     "prettier": "^3.4.1",
     "sass": "^1.81.0",
-    "sass-loader": "^16.0.3",
     "typescript": "~5.4.5",
     "vite": "^5.4.11",
     "vite-plugin-vue-devtools": "^7.6.5",

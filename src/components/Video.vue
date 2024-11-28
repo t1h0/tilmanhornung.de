@@ -7,10 +7,10 @@ const yt_url = computed(() => 'https://www.youtube-nocookie.com/embed/' + props.
 
 <template>
     <div id="video-container">
-        <iframe id="video" :src="yt_url" :title="title" :alt="alt" frameborder="0"
+        <iframe data-aos="fade" id="video" :src="yt_url" :title="title" :alt="alt" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
-        <div id="text" v-prlx="{ speed: 0.1 }">
+        <div data-aos="fade" id="text" v-prlx="{ speed: 0.1 }">
             <h1>{{ title }}</h1>
             <h2>{{ alt }}</h2>
         </div>
