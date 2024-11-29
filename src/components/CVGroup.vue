@@ -10,7 +10,7 @@ defineProps<{
 <template>
     <div>
         <h1>{{ title }}.</h1>
-        <CVEntry v-for="entry in $props.entries" :key="entry.title" class="cventry" :="entry" />
+        <CVEntry v-for="entry in entries" :key="entry.title" class="cventry" :="entry" />
     </div>
 </template>
 

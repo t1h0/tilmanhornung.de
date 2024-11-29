@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Graphic from '@/components/Graphic.vue'
+import { getAnimationDelay } from '@/ts/functions'
 const graphics = [
   {
     title: 'Jazz Baby EP Cover',
@@ -18,7 +19,10 @@ const graphics = [
 
 <template>
   <main>
-    <Graphic class="img" v-for="graphic in graphics" :key="graphic.original" :="graphic" />
+    <Transition v-for="(graphic, i) in graphics" :key="graphic.original"
+      :enter-active-class="`animate__animated animate__fadeIn animate__delay-${getAnimationDelay(i)}ms`" appear>
+      <Graphic class="img" :="graphic" />
+    </Transition>
   </main>
 </template>
 
@@ -33,6 +37,7 @@ main {
   flex: calc(50% - 1rem);
   height: 100vh;
   max-height: calc(100vh - 2.5 * var(--app-padding));
+  transition: flex 0.5s;
 
   &:hover {
     flex: calc(75% - 1rem);

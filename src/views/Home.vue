@@ -135,17 +135,23 @@ const CVGroups = [
 <template>
   <main>
     <div id="left" class="column">
-      <div id="slogan">creativity in<br />art and numbers.</div>
+      <Transition enter-active-class="animate__animated animate__fadeIn" appear>
+        <div id="slogan">creativity in<br />art and numbers.</div>
+      </Transition>
       <h2 id="linkedin" class="arrowLink">
         <a href="https://linkedin.com/in/tilmanhornung" target="_blank">LinkedIn</a>
       </h2>
-      <div id="cv">
-        <CVGroup data-aos="fade" v-for="group in CVGroups" :key="group.title" :="group" class="cvgroup" />
+      <Transition enter-active-class="animate__animated animate__fadeIn animate__delay-0300ms" appear>
+        <div id="cv">
+          <CVGroup data-aos="fade" v-for="group in CVGroups" :key="group.title" :="group" class="cvgroup" />
+        </div>
+      </Transition>
+    </div>
+    <Transition enter-active-class="animate__animated animate__fadeIn animate__delay-0600ms" appear>
+      <div id="right" v-if="!noPic" class="column">
+        <img id="portrait" src="/src/assets/img/portrait.jpg" />
       </div>
-    </div>
-    <div id="right" v-if="!noPic" class="column">
-      <img data-aos="fade" id="portrait" src="/src/assets/img/portrait.jpg" />
-    </div>
+    </Transition>
   </main>
 </template>
 

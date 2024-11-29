@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Video from '@/components/Video.vue'
-import { onMounted, onUnmounted } from 'vue';
+import { getAnimationDelay } from '@/ts/functions';
 const videos = [
   { title: 'weit weg', alt: "a movie I made for my bachelor's thesis, shedding light on the element of surprise. written, directed, filmed and cut by me.", yt_id: 'Xd77R7J77IE' },
   {
@@ -25,7 +25,7 @@ const videos = [
   }
 ]
 
-const distances: number[] = [0, 50, 80, 75, 100];
+const distances: number[] = [50, 50, 80, 75, 100];
 
 function dynamicStyle(index: number) {
 
@@ -51,8 +51,10 @@ function dynamicClasses(index: number) {
 
 <template>
   <main>
-    <Video :class="dynamicClasses(index)" :style="dynamicStyle(index)" v-for="(video, index) in videos"
-      :key="video.yt_id" :="video" />
+    <Transition v-for="(video, i) in videos" :key="video.yt_id"
+      :enter-active-class="`animate__animated animate__fadeIn animate__delay-${getAnimationDelay(i, 500)}ms`" appear>
+      <Video data-aos="fade" :class="dynamicClasses(i)" :style="dynamicStyle(i)" :="video" />
+    </Transition>
   </main>
 </template>
 

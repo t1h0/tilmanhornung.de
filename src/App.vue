@@ -40,9 +40,7 @@ onMounted(() => {
     </header>
     <div id="contentWrapper">
       <RouterView id="content" v-slot="{ Component }">
-        <Transition name="fade" mode="out-in">
-          <component :is="Component" />
-        </Transition>
+        <component :is="Component" />
       </RouterView>
       <footer>&#169; {{ firstNameOfficial }} Hornung | <RouterLink to="/privacy">privacy policy</RouterLink>
       </footer>
@@ -150,16 +148,6 @@ nav {
   width: 100%;
   margin: 0 0 1rem;
   min-height: 88vh;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
 }
 
 @media (min-width: 768px) {

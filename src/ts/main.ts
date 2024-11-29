@@ -6,9 +6,10 @@ import { createApp } from 'vue'
 import App from '@/App.vue'
 import router from '@/router'
 
-import VuePrlxDirective from 'vue3-prlx'
+import { VuePrlxDirective } from 'vue3-prlx'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import 'animate.css'
 
 const app = createApp(App)
 
@@ -47,8 +48,7 @@ switch (mainUrl) {
 }
 
 app.use(router)
-app.use(AOS.init())
-// app.directive('appear', appear)
+AOS.init()
 app.directive('prlx', VuePrlxDirective)
 
 app.mount('#app')
