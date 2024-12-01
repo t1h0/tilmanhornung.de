@@ -6,7 +6,11 @@ import { createApp } from 'vue'
 import App from '@/App.vue'
 import router from '@/router'
 
+// Directives
 import { VuePrlxDirective } from 'vue3-prlx'
+import { LrLayout } from './customDirectives'
+
+// Animations
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import 'animate.css'
@@ -50,5 +54,6 @@ switch (mainUrl) {
 app.use(router)
 AOS.init()
 app.directive('prlx', VuePrlxDirective)
+app.directive('lr-layout', LrLayout)
 
 app.mount('#app')

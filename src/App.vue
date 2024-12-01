@@ -5,22 +5,20 @@ const firstName = inject('firstName') as string
 const firstNameOfficial = inject('firstNameOfficial') as string
 
 onMounted(() => {
-  window.addEventListener("scroll", function () {
-    const header = document.getElementsByTagName("header");
-    const nav_classes = header[0].classList;
+  window.addEventListener('scroll', function () {
+    const header = document.getElementsByTagName('header')
+    const nav_classes = header[0].classList
     if (document.documentElement.scrollTop != 0) {
-      if (nav_classes.contains("shrink") === false) {
-        nav_classes.toggle("shrink");
+      if (nav_classes.contains('shrink') === false) {
+        nav_classes.toggle('shrink')
       }
-    }
-    else {
-      if (nav_classes.contains("shrink") === true) {
-        nav_classes.toggle("shrink");
+    } else {
+      if (nav_classes.contains('shrink') === true) {
+        nav_classes.toggle('shrink')
       }
     }
   })
 })
-
 </script>
 
 <template>
@@ -42,7 +40,9 @@ onMounted(() => {
       <RouterView id="content" v-slot="{ Component }">
         <component :is="Component" />
       </RouterView>
-      <footer>&#169; {{ firstNameOfficial }} Hornung | <RouterLink to="/privacy">privacy policy</RouterLink>
+      <footer>
+        &#169; {{ firstNameOfficial }} Hornung |
+        <RouterLink to="/privacy">privacy policy</RouterLink>
       </footer>
     </div>
   </div>
@@ -106,7 +106,11 @@ header {
   font-family: 'Arial Black' !important;
   background-color: main.$color-background;
   // transitions
-  transition: font-size 1s, gap 1s, padding 1s, box-shadow 1s;
+  transition:
+    font-size 1s,
+    gap 1s,
+    padding 1s,
+    box-shadow 1s;
 }
 
 footer {
@@ -117,7 +121,6 @@ footer {
   margin: 0;
   text-align: left;
   line-height: 0.75;
-
 
   &::after {
     content: '.';
@@ -136,7 +139,6 @@ nav {
     &.router-link-exact-active:hover {
       background-color: transparent;
     }
-
 
     &:first-of-type {
       border: 0;
