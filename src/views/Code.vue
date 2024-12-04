@@ -64,10 +64,10 @@ onMounted(() => {
       scrub: 1,
       // markers: true
       snap: {
-        snapTo: 'labels',
-        duration: { min: 0.2, max: 0.5 },
-        directional: true,
-        delay: 0,
+        snapTo: 'labelsDirectional',
+        duration: { min: 0.2, max: 1 },
+        // directional: true,
+        delay: 1,
         ease: 'power1.inOut'
       }
     }
@@ -81,7 +81,7 @@ onMounted(() => {
       Array.from(el.getElementsByClassName('animate-entity')).forEach((subEl) => {
         tl.to(subEl, { autoAlpha: 1, duration: 2 }, '+=0.5')
       })
-      tl.addLabel(labelName)
+      tl.addLabel(labelName, '>')
     }
     if (index != projectEntries.length - 1) {
       tl.to(el, { autoAlpha: 0, duration: 2 }, '+=1')
