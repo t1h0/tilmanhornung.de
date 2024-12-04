@@ -1,4 +1,10 @@
 # tilmanhornung.de
-Source code for my [personal website](https://tilmanhornung.de). 
+
+Source code for my [personal website](https://tilmanhornung.de).
 
 Some files have been removed for source code publication, cf. `.gitignore`.
+
+## TODO
+
+- Clamp font sizes
+- Add web design references
