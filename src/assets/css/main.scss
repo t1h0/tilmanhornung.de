@@ -1,30 +1,8 @@
 @use 'sass:meta';
 @use 'sass:string';
+@use './vars.scss';
 @use './functions.scss';
 @use 'sass:map';
-
-// =============== BASE ===============
-
-/* color palette from <https://github.com/vuejs/theme> */
-$c-main: #0040ff;
-$c-beige: #e3e3e3;
-$c-gray: #262626;
-$c-lightgray: #686868;
-
-/* semantic color variables for this project */
-$color-main: $c-main;
-$color-background: $c-beige;
-$color-text: $c-gray;
-$color-lighttext: $c-lightgray;
-$section-gap: 160px;
-$font-size: 15px;
-$headings: (
-  h1: 2.5rem,
-  h2: 2rem,
-  h3: 1.5rem,
-  h4: 1rem
-);
-$app-padding: 2rem;
 
 /* @media (prefers-color-scheme: dark) {
   :root {
@@ -42,12 +20,12 @@ $app-padding: 2rem;
 
 body {
   min-height: 100vh;
-  color: $color-text;
-  background: $color-background;
+  color: vars.$color-text;
+  background: vars.$color-background;
   transition: color 0.5s;
   line-height: 1.6;
   font-family: 'Helvetica Bold' !important;
-  font-size: $font-size;
+  font-size: vars.$font-size;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -66,32 +44,35 @@ body {
 // ==============================
 
 #app {
-  /* max-width: 1280px; */
   margin: 0 auto;
-  padding: 0 0 $app-padding;
+  padding: 0 0 vars.$app-padding;
   font-weight: normal;
   width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: auto;
 }
 
 a {
   text-decoration: none;
-  color: $color-text;
+  color: vars.$color-text;
   transition: color 0.4s;
 }
 
 a:visited {
-  color: $color-text;
+  color: vars.$color-text;
 }
 
 a:active,
 a:hover,
 .router-link-active,
 .router-link-hover {
-  color: $color-main !important;
+  color: vars.$color-main !important;
 }
 
 html {
-  font-size: $font-size;
+  font-size: vars.$font-size;
   scroll-behavior: smooth;
 }
 
@@ -101,24 +82,25 @@ body {
 
 @media (min-width: 768px) {
   #app {
-    padding: $app-padding;
+    padding: vars.$app-padding;
+    flex-direction: row;
   }
 }
 
+// Utility classes
+
 .arrowLink::before {
   content: '\276F';
-  color: $color-main;
+  color: vars.$color-main;
   margin-right: 0.1em;
 }
 
 // Headings
 
-// Mixins
-
 @mixin heading($head: h1) {
   #{$head} {
-    font-size: map.get($headings, $head);
-    line-height: calc(map.get($headings, $head) + 0.5rem);
+    font-size: map.get(vars.$headings, $head);
+    line-height: calc(map.get(vars.$headings, $head) + 0.5rem);
   }
 }
 

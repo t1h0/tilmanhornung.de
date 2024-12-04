@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import CVGroup from '@/components/CVGroup.vue'
 import { inject } from 'vue'
+import { getAnimationDelay } from '@/ts/functions'
 const noPic = inject('noPic') as boolean
 const CVGroups = [
   {
@@ -61,8 +62,8 @@ const CVGroups = [
       {
         title: 'web designer',
         subtitle: 'freelancer',
-        start: 'since 2011',
-      },
+        start: 'since 2011'
+      }
     ]
   },
   {
@@ -82,13 +83,13 @@ const CVGroups = [
         title: 'bass player & singer',
         subtitle: 'gentree',
         subtitleUrl: 'https://open.spotify.com/artist/0JgFhRX2Rccdyf5gePLNHO',
-        start: 'since 2011',
+        start: 'since 2011'
       },
       {
         title: 'solo artist',
         subtitle: 'singer | pianist | guitarist',
-        start: 'since 2007',
-      },
+        start: 'since 2007'
+      }
     ]
   },
   {
@@ -126,7 +127,7 @@ const CVGroups = [
         subtitle: 'katholische junge gemeinde',
         start: '2010',
         end: '2014 & 2018'
-      },
+      }
     ]
   }
 ]
@@ -141,11 +142,16 @@ const CVGroups = [
       <h2 id="linkedin" class="arrowLink">
         <a href="https://linkedin.com/in/tilmanhornung" target="_blank">LinkedIn</a>
       </h2>
-      <Transition enter-active-class="animate__animated animate__fadeIn animate__delay-0300ms" appear>
-        <div id="cv">
-          <CVGroup data-aos="fade" v-for="group in CVGroups" :key="group.title" :="group" class="cvgroup" />
-        </div>
-      </Transition>
+      <div id="cv">
+        <Transition
+          v-for="(group, i) in CVGroups"
+          :key="group.title"
+          :enter-active-class="`animate__animated animate__fadeIn animate__delay-${getAnimationDelay(i, 500)}ms`"
+          appear
+        >
+          <CVGroup :="group" class="cvgroup" />
+        </Transition>
+      </div>
     </div>
     <Transition enter-active-class="animate__animated animate__fadeIn animate__delay-0600ms" appear>
       <div id="right" v-if="!noPic" class="column">
@@ -157,7 +163,8 @@ const CVGroups = [
 
 <style scoped lang="scss">
 @use '@/assets/css/main.scss';
-@use "sass:map";
+@use '@/assets/css/vars.scss';
+@use 'sass:map';
 
 @media (max-width: 1023px) {
   main {
@@ -187,7 +194,7 @@ main {
   width: 100%;
   object-fit: cover;
   position: sticky;
-  top: main.$app-padding;
+  top: vars.$app-padding;
 }
 
 #linkedin {
@@ -202,15 +209,14 @@ main {
 #slogan {
   @extend h1;
   border-left: medium solid #929292;
-  $small-line-height: map.get(main.$headings, h1);
+  $small-line-height: map.get(vars.$headings, h1);
   line-height: small-line-height;
   /* Adjusts for smaller line-height */
-  margin: 0 0 .5rem;
+  margin: 0 0 0.5rem;
   padding-left: 1rem;
 }
 
 .cvgroup {
-
   &:not(:first-child) {
     margin-top: 1rem;
   }

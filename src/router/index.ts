@@ -24,11 +24,11 @@ const router = createRouter({
       name: 'graphics',
       component: () => import('@/views/Graphics.vue')
     },
-    {
-      path: '/web',
-      name: 'web',
-      component: () => import('@/views/Web.vue')
-    },
+    // {
+    //   path: '/web',
+    //   name: 'web',
+    //   component: () => import('@/views/Web.vue')
+    // },
     {
       path: '/film-video',
       name: 'film-video',

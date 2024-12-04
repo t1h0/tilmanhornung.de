@@ -11,8 +11,6 @@ import { VuePrlxDirective } from 'vue3-prlx'
 import { LrLayout } from './customDirectives'
 
 // Animations
-import AOS from 'aos'
-import 'aos/dist/aos.css'
 import 'animate.css'
 
 const app = createApp(App)
@@ -52,7 +50,6 @@ switch (mainUrl) {
 }
 
 app.use(router)
-AOS.init()
 app.directive('prlx', VuePrlxDirective)
 app.directive('lr-layout', LrLayout)
 

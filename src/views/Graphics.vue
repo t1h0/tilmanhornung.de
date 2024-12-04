@@ -19,8 +19,12 @@ const graphics = [
 
 <template>
   <main>
-    <Transition v-for="(graphic, i) in graphics" :key="graphic.original"
-      :enter-active-class="`animate__animated animate__fadeIn animate__delay-${getAnimationDelay(i)}ms`" appear>
+    <Transition
+      v-for="(graphic, i) in graphics"
+      :key="graphic.original"
+      :enter-active-class="`animate__animated animate__fadeIn animate__delay-${getAnimationDelay(i)}ms`"
+      appear
+    >
       <Graphic class="img" :="graphic" />
     </Transition>
   </main>
@@ -35,16 +39,11 @@ main {
 
 .img {
   flex: calc(50% - 1rem);
-  height: 100vh;
-  max-height: calc(100vh - 2.5 * var(--app-padding));
+  max-height: 100%;
   transition: flex 0.5s;
 
   &:hover {
     flex: calc(75% - 1rem);
   }
 }
-
-/* .img #image {
-  height: 100%;
-} */
 </style>

@@ -22,34 +22,32 @@ onMounted(() => {
 </script>
 
 <template>
-  <div id="pageWrapper">
-    <header>
-      <div id="name">
-        <RouterLink to="/">{{ firstName }} hornung</RouterLink>
-      </div>
-
-      <nav>
-        <RouterLink to="/code">code</RouterLink>
-        <RouterLink to="/music">music</RouterLink>
-        <RouterLink to="/graphics">graphics</RouterLink>
-        <RouterLink to="/web">web</RouterLink>
-        <RouterLink to="/film-video">film+video</RouterLink>
-      </nav>
-    </header>
-    <div id="contentWrapper">
-      <RouterView id="content" v-slot="{ Component }">
-        <component :is="Component" />
-      </RouterView>
-      <footer>
-        &#169; {{ firstNameOfficial }} Hornung |
-        <RouterLink to="/privacy">privacy policy</RouterLink>
-      </footer>
+  <header>
+    <div id="name">
+      <RouterLink to="/">{{ firstName }} hornung</RouterLink>
     </div>
+
+    <nav>
+      <RouterLink to="/code">code</RouterLink>
+      <RouterLink to="/music">music</RouterLink>
+      <RouterLink to="/graphics">graphics</RouterLink>
+      <!-- <RouterLink to="/web">web</RouterLink> -->
+      <RouterLink to="/film-video">film+video</RouterLink>
+    </nav>
+  </header>
+  <div id="content-footer-wrapper">
+    <RouterView id="content" v-slot="{ Component }">
+      <component :is="Component" />
+    </RouterView>
+    <footer>
+      &#169; {{ firstNameOfficial }} Hornung |
+      <RouterLink to="/privacy">privacy policy</RouterLink>
+    </footer>
   </div>
 </template>
 
 <style scoped lang="scss">
-@use '@/assets/css/main.scss';
+@use '@/assets/css/vars.scss';
 
 @media (max-width: 767px) {
   nav {
@@ -57,54 +55,45 @@ onMounted(() => {
 
     a:not(:last-child)::after {
       content: ',';
-      color: main.$color-text;
+      color: vars.$color-text;
     }
   }
 
   header {
-    padding: main.$app-padding;
+    padding: vars.$app-padding;
     z-index: 99;
   }
 
   .shrink {
     font-size: 2rem !important;
-    line-height: 1 !important;
+    line-height: vars.$header-shrink-line-height !important;
     gap: 0 !important;
-    $small-padding: calc(main.$app-padding / 2);
-    padding: $small-padding main.$app-padding $small-padding main.$app-padding;
+    padding: vars.$small-app-padding vars.$app-padding vars.$small-app-padding vars.$app-padding;
     width: 100%;
-    box-shadow: 0 2.5px 0px main.$c-main;
+    box-shadow: 0 2.5px 0px vars.$c-main;
   }
 }
 
-#pageWrapper {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  min-height: calc(100vh - 2 * main.$app-padding - 1.5rem);
-  // max-width: 1024px;
-  margin: auto;
-}
-
-#contentWrapper {
+#content-footer-wrapper {
   width: 100%;
-  padding: 0 main.$app-padding 0 main.$app-padding;
+  padding: 0 vars.$app-padding 0 vars.$app-padding;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
 }
 
 header {
   display: flex;
   position: sticky;
-  gap: 1rem;
+  gap: vars.$content-footer-gap;
   top: 0;
   flex-direction: column;
   place-items: left;
   line-height: 1.5;
   font-size: 2.25rem;
   font-family: 'Arial Black' !important;
-  background-color: main.$color-background;
+  background-color: vars.$color-background;
   // transitions
   transition:
     font-size 1s,
@@ -115,16 +104,17 @@ header {
 
 footer {
   text-align: center;
+  line-height: vars.$footer-line-height;
 }
 
 #name {
   margin: 0;
   text-align: left;
-  line-height: 0.75;
+  line-height: 1.75rem;
 
   &::after {
     content: '.';
-    color: main.$color-main;
+    color: vars.$color-main;
   }
 }
 
@@ -148,19 +138,14 @@ nav {
 
 #content {
   width: 100%;
-  margin: 0 0 1rem;
-  min-height: 88vh;
+  min-height: vars.$content-min-height;
 }
 
 @media (min-width: 768px) {
   header {
     position: sticky;
     padding-top: 0;
-    top: main.$app-padding;
-  }
-
-  #pageWrapper {
-    flex-direction: row;
+    top: vars.$app-padding;
   }
 
   nav {

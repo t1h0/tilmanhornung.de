@@ -38,12 +38,13 @@ const videos = [
       :enter-active-class="`animate__animated animate__fadeIn animate__delay-${getAnimationDelay(i, 500)}ms`"
       appear
     >
-      <Video data-aos="fade" class="vid" :="video" />
+      <Video class="vid" :="video" />
     </Transition>
   </main>
 </template>
 
 <style scoped lang="scss">
+@use '@/assets/css/vars.scss';
 @use '@/assets/css/main.scss';
 
 main {
@@ -56,7 +57,7 @@ main {
   width: 100%;
   height: 250px;
   // position: relative;
-  max-height: calc(100vh - 2 * main.$app-padding);
+  max-height: calc(100vh - 2 * vars.$app-padding);
 
   &:deep(h2) {
     @extend h4;
