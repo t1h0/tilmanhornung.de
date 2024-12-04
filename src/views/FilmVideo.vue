@@ -59,20 +59,24 @@ main {
   // position: relative;
   max-height: calc(100vh - 2 * vars.$app-padding);
 
+  &:deep(h1) {
+    font-size: clamp(1.5rem, 0.9222rem + 2.4653vw, 2.5rem) !important;
+    line-height: 1;
+  }
+
   &:deep(h2) {
     @extend h4;
+    font-size: clamp(0.8rem, 0.6844rem + 0.4931vw, 1rem) !important;
   }
 }
 
 @media (max-width: 1023px) {
   .vid {
     &:deep(h1) {
-      font-size: 1.75rem !important;
       line-height: 1;
     }
 
     &:deep(h2) {
-      font-size: 0.9rem !important;
       line-height: 1;
     }
   }

@@ -25,9 +25,10 @@ $app-padding: 2rem;
 $small-app-padding: calc($app-padding / 2);
 $footer-line-height: 0.75rem;
 $header-shrink-line-height: 1.75rem;
+$header-shrink-box-shadow: 2.5px;
 $content-footer-gap: 1rem;
 $content-min-height: calc(100vh - 2 * $app-padding - $footer-line-height - $content-footer-gap);
 $content-min-height-mobile: calc(
-  100vh - 2 * $small-app-padding - 2 * 3 * $header-shrink-line-height - $app-padding -
-    $content-footer-gap - $footer-line-height
+  100vh - 2 * $small-app-padding - 2 * 3 * $header-shrink-line-height - $header-shrink-box-shadow -
+    $app-padding - $content-footer-gap - $footer-line-height
 );

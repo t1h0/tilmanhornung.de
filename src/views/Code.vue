@@ -65,9 +65,10 @@ onMounted(() => {
       // markers: true
       snap: {
         snapTo: 'labels',
-        duration: { min: 0.2, max: 1 },
-        delay: 0.2
-        // ease: 'power1.inOut' // the ease of the snap animation ("power3" by default)
+        duration: { min: 0.2, max: 0.5 },
+        directional: true,
+        delay: 0,
+        ease: 'power1.inOut'
       }
     }
   })
@@ -100,13 +101,13 @@ onUnmounted(() => {
 <template>
   <main>
     <div id="grid-wrapper" class="grid">
+      <div id="instruction" class="full-grid">
+        [scroll down to see more]<br />[click on the project names to see the project]
+      </div>
       <Transition
         enter-active-class="animate__animated animate__fadeIn animate__delay-0300ms"
         appear
       >
-        <div id="instruction" class="full-grid">
-          [scroll down to see more]<br />[click on the project names to see the project]
-        </div>
       </Transition>
       <Transition enter-active-class="animate__animated animate__fadeIn" appear>
         <div id="project-entries-wrapper" class="grid full-grid">
@@ -134,8 +135,13 @@ main {
 }
 
 #instruction {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  color: vars.$color-main;
   font-family: 'Courier New', Courier, monospace;
   text-align: center;
+  font-size: clamp(0.8rem, 0.3955rem + 1.7257vw, 1.5rem);
 }
 
 .grid {
@@ -154,15 +160,12 @@ main {
 
 .project-entry {
   &:deep(h1) {
-    font-size: 6rem;
+    font-size: clamp(3rem, 1.2666rem + 7.396vw, 6rem);
     line-height: 0.75;
   }
   &:deep(h2) {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 0.7111rem + 1.2327vw, 1.5rem);
     line-height: 1;
-  }
-  &:deep(#info-wrapper) {
-    font-size: 1.5rem;
   }
   &:deep(#links) {
     font-weight: normal;

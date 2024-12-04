@@ -6,5 +6,4 @@ Some files have been removed for source code publication, cf. `.gitignore`.
 
 ## TODO
 
-- Clamp font sizes
 - Add web design references

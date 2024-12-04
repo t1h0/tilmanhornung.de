@@ -70,7 +70,7 @@ onMounted(() => {
     gap: 0 !important;
     padding: vars.$small-app-padding vars.$app-padding vars.$small-app-padding vars.$app-padding;
     width: 100%;
-    box-shadow: 0 2.5px 0px vars.$c-main;
+    box-shadow: 0 vars.$header-shrink-box-shadow 0px vars.$c-main;
   }
 }
 
