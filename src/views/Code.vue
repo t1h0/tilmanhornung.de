@@ -51,50 +51,48 @@ const entries = [
   }
 ]
 
-let tl: gsap.core.Timeline
+let animationContext: gsap.Context
 
 onMounted(() => {
-  tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: '#app',
-      pin: '#project-entries-wrapper',
-      pinSpacing: false,
-      start: 0,
-      end: 'clamp(bottom bottom)',
-      scrub: 1,
-      // markers: true
-      snap: {
-        snapTo: 'labelsDirectional',
-        duration: { min: 0.2, max: 1 },
-        // directional: true,
-        delay: 1,
-        ease: 'power1.inOut'
+  animationContext = gsap.context(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#app',
+        pin: '#project-entries-wrapper',
+        pinSpacing: false,
+        start: 0,
+        end: 'clamp(bottom bottom)',
+        scrub: 1,
+        // markers: true
+        snap: {
+          snapTo: 'labelsDirectional',
+          duration: { min: 0.2, max: 1 },
+          // directional: true,
+          delay: 1,
+          ease: 'power1.inOut'
+        }
       }
-    }
+    })
+    tl.addLabel('start')
+    const projectEntries = document.getElementsByClassName('project-entry')
+    Array.from(projectEntries).forEach((el, index) => {
+      const labelName = `entry-${index}`
+      if (index != 0) {
+        tl.to(el, { autoAlpha: 1, duration: 2 }, '<')
+        Array.from(el.getElementsByClassName('animate-entity')).forEach((subEl) => {
+          tl.to(subEl, { autoAlpha: 1, duration: 2 }, '+=0.5')
+        })
+        tl.addLabel(labelName, '>')
+      }
+      if (index != projectEntries.length - 1) {
+        tl.to(el, { autoAlpha: 0, duration: 2 }, '+=1')
+      }
+    })
   })
-  tl.addLabel('start')
-  const projectEntries = document.getElementsByClassName('project-entry')
-  Array.from(projectEntries).forEach((el, index) => {
-    const labelName = `entry-${index}`
-    if (index != 0) {
-      tl.to(el, { autoAlpha: 1, duration: 2 }, '<')
-      Array.from(el.getElementsByClassName('animate-entity')).forEach((subEl) => {
-        tl.to(subEl, { autoAlpha: 1, duration: 2 }, '+=0.5')
-      })
-      tl.addLabel(labelName, '>')
-    }
-    if (index != projectEntries.length - 1) {
-      tl.to(el, { autoAlpha: 0, duration: 2 }, '+=1')
-    }
-  })
-})
-
-onUpdated(() => {
-  tl.scrollTrigger?.refresh()
 })
 
 onUnmounted(() => {
-  tl.kill()
+  animationContext.revert()
 })
 </script>
 
