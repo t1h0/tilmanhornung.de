@@ -62,14 +62,14 @@ onMounted(() => {
         pinSpacing: false,
         start: 0,
         end: 'clamp(bottom bottom)',
-        scrub: 1,
+        scrub: true,
         // markers: true
         snap: {
           snapTo: 'labelsDirectional',
           duration: { min: 0.2, max: 1 },
           // directional: true,
-          delay: 1,
-          ease: 'power1.inOut'
+          delay: 0,
+          ease: 'power1.out'
         }
       }
     })
