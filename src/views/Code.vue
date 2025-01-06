@@ -3,6 +3,7 @@ import ProjectEntry from '@/components/ProjectEntry.vue'
 import { onMounted, onUnmounted, onUpdated } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { entries } from '@/content/code'
 gsap.registerPlugin(ScrollTrigger)
 
 let animationContext: gsap.Context

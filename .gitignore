@@ -1,6 +1,7 @@
 # Ignored for source publication
 src/assets/*.ttf
 src/assets/img
+src/content/
 public/
 
 # Logs

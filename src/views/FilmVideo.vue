@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Video from '@/components/Video.vue'
 import { getAnimationDelay } from '@/ts/functions'
+import { videos } from '@/content/filmvideo'
 </script>
 
 <template>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import WebRef from '@/components/WebRef.vue'
+import { webrefs } from '@/content/web'
 </script>
 
 <template>
@@ -13,7 +14,6 @@ main {
   line-height: 0.9;
   font-size: 48pt;
 }
-
 
 @media (min-width: 1024px) {
   main {

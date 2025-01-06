@@ -2,6 +2,7 @@
 import CVGroup from '@/components/CVGroup.vue'
 import { inject } from 'vue'
 import { getAnimationDelay } from '@/ts/functions'
+import { CVGroups } from '@/content/home'
 const noPic = inject('noPic') as boolean
 </script>
 

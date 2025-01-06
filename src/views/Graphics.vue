@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Graphic from '@/components/Graphic.vue'
 import { getAnimationDelay } from '@/ts/functions'
+import { graphics } from '@/content/graphics'
 </script>
 
 <template>
