@@ -1,0 +1,7 @@
+@use 'sass:meta';
+
+@mixin apply-to-all($mixin, $list) {
+  @each $element in $list {
+    @include meta.apply($mixin, $element);
+  }
+}

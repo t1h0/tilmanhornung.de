@@ -1,0 +1,131 @@
+@use 'sass:meta';
+@use 'sass:string';
+@use './vars.scss';
+@use './functions.scss';
+@use 'sass:map';
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+
+  }
+} */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  /* font-weight: normal; */
+}
+
+body {
+  min-height: 100vh;
+  color: vars.$color-text;
+  background: vars.$color-background;
+  transition: color 0.5s;
+  line-height: 1.6;
+  font-family: 'Helvetica Bold' !important;
+  font-size: vars.$font-size;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: 'Helvetica Bold';
+  src: url('/src/assets/Helvetica-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Arial Black';
+  src: url('/src/assets/Arial-Black.ttf') format('truetype');
+}
+
+// ==============================
+
+#app {
+  margin: 0 auto;
+  padding: 0 0 vars.$app-padding;
+  font-weight: normal;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: auto;
+}
+
+a {
+  text-decoration: none;
+  color: vars.$color-text;
+  transition: color 0.4s;
+}
+
+a:visited {
+  color: vars.$color-text;
+}
+
+a:active,
+a:hover,
+.router-link-active,
+.router-link-hover {
+  color: vars.$color-main !important;
+}
+
+html {
+  font-size: vars.$font-size;
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  #app {
+    padding: vars.$app-padding;
+    flex-direction: row;
+  }
+}
+
+// Utility classes
+
+.arrowLink::before {
+  content: '\276F';
+  color: vars.$color-main;
+  margin-right: 0.1em;
+}
+
+// Headings
+
+@mixin heading($head: h1) {
+  #{$head} {
+    font-size: map.get(vars.$headings, $head);
+    line-height: calc(map.get(vars.$headings, $head) + 0.5rem);
+  }
+}
+
+@include functions.apply-to-all(meta.get-mixin('heading'), [ h1 h2 h3 h4]);
+
+// Transitions
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+@for $s from 0 through 5 {
+  @for $ds from 0 through 9 {
+    @for $cs from 0 through 1 {
+      .animate__animated.animate__delay-#{$s}#{$ds}#{$cs}0ms {
+        $delay-val: #{$s * 1000 + $ds * 100 + $cs * 50}ms;
+        -webkit-animation-delay: $delay-val;
+        animation-delay: $delay-val;
+      }
+    }
+  }
+}
